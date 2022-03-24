@@ -1,0 +1,42 @@
+[tool.poetry]
+name = "chinook-make-dag"
+version = "0.1.0"
+description = "Example code for the article on building DAGs with Make: https://robbmann.io/posts/make_dag/"
+authors = ["Robert Enzmann <robbenzmann at gmail>"]
+
+[tool.poetry.dependencies]
+python = ">=3.8"
+black = "*"
+isort = "*"
+pandas = "^1.4.1"
+requests = "^2.27.1"
+matplotlib = "^3.5.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 95
+target-version = ["py36", "py37", "py38", "py39"]
+extend_exclude = '''
+/(
+    \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | \.env
+  | _build
+  | buck-out
+  | build
+  | dist
+  | .vscode
+  | dev
+  | .coverage
+)/
+'''
+
+[tool.isort]
+profile = "black"
