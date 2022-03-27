@@ -17,6 +17,15 @@ project along with all its python dependencies.
 git clone https://github.com/renzmann/chinook-make-dag && cd chinook-make-dag && make install
 ```
 
+If you do not want to use poetry, you can use a recent version of `pip` to
+install in editable mode as well:
+
+```sh
+pip install --upgrade pip
+pip install -e .
+make data
+```
+
 # Usage
 
 `make tables` will produce new tables in `data/analysis.db` for each SQL file in
