@@ -57,7 +57,7 @@ pyfunc_%: $(PROJECT) | $(TARGETDIR)
 	$(call to_command,$*)-csv
 
 # =========================== Misc. Content =================================
-.PHONY: data install
+.PHONY: data install install-dev poetry
 
 $(TARGETDIR):
 	mkdir -p $(TARGETDIR)
@@ -75,7 +75,13 @@ clean:
 	@[ ! -d $(TARGETDIR) ] || rm -r $(TARGETDIR)
 	@[ ! -d $(DATADIR) ] || rm -r $(DATADIR)
 
-install: data
+poetry:
 	@pip install --upgrade pip wheel
 	@curl -sSL https://install.python-poetry.org | python3 -
+
+install: data poetry
 	@~/.local/bin/poetry install --no-dev
+
+install-dev: data poetry
+	@~/.local/bin/poetry install
+	@pre-commit install
