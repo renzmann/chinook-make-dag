@@ -16,7 +16,7 @@ all its python dependencies.
 
 ```sh
 git clone https://github.com/renzmann/chinook-make-dag && cd chinook-make-dag
-python -m venv .venv
+python3 -m venv .venv
 source .venv/bin/activate
 make install
 ```
