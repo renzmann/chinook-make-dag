@@ -10,18 +10,22 @@ exports.
 
 # Installation
 
-This will install `poetry` to `~/local/bin/poetry`, and use it to install this
-project along with all its python dependencies.
+Use `make install` from the top level of this repository.  This will install
+`poetry` to `~/local/bin/poetry`, and use it to install this project along with
+all its python dependencies.
 
 ```sh
-git clone https://github.com/renzmann/chinook-make-dag && cd chinook-make-dag && make install
+git clone https://github.com/renzmann/chinook-make-dag && cd chinook-make-dag
+python -m venv .venv
+source .venv/bin/activate
+make install
 ```
 
 If you do not want to use poetry, you can use a recent version of `pip` to
 install in editable mode as well:
 
 ```sh
-pip install --upgrade pip
+pip install --upgrade pip wheel
 pip install -e .
 make data
 ```
