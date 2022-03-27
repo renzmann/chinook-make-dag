@@ -1,8 +1,7 @@
-from pathlib import Path
 import sqlite3
+from pathlib import Path
 
 import yaml
-
 
 THIS_FILE_DIR = Path(__file__).absolute().parent
 PROJECT_DIR = THIS_FILE_DIR.parent

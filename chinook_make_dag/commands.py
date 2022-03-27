@@ -5,7 +5,15 @@ from zipfile import ZipFile
 import click
 import jinja2
 
-from ._project import DEFAULT_DATABASE, PROJECT_DIR, SQL_DIR, TARGET_DIR, DATA_DIR, get_connection, get_config
+from ._project import (
+    DATA_DIR,
+    DEFAULT_DATABASE,
+    PROJECT_DIR,
+    SQL_DIR,
+    TARGET_DIR,
+    get_config,
+    get_connection,
+)
 
 
 @click.group()
