@@ -6,11 +6,13 @@ authors = ["Robert Enzmann <robbenzmann at gmail>"]
 
 [tool.poetry.dependencies]
 python = ">=3.8"
-black = "*"
-isort = "*"
 pandas = "^1.4.1"
 requests = "^2.27.1"
 matplotlib = "^3.5.1"
+
+[tool.poetry.dev-dependencies]
+black = "*"
+isort = "*"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
