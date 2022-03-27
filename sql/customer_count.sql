@@ -1,4 +1,4 @@
 SELECT
-    count(DISTINCT customer_id) AS num_members
+    count(DISTINCT CustomerId) AS num_members
 FROM
-    customers
+    analysis_customers
