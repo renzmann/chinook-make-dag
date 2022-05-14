@@ -75,9 +75,9 @@ make tables
 `make tables` will produce new tables in `data/analysis.db` for each SQL file in
 the `sql/` directory.  A couple examples are provided for hard artifacts:
 
-`make customer_sales.png` will produce a bar chart in the `target/` directory
-with total sales of US customers within each state.  `make customer_sales.csv`
-produces a CSV with the data this chart uses.
+1. `make customer_sales.png` will produce a bar chart in the `target/` directory 
+   with total sales of US customers within each state.
+3. `make customer_sales.csv` produces a CSV with the data this chart uses.
 
 If at any point you want to refresh your `target/` or `data/` directories, you
 can use `make clean` and `make data`.
