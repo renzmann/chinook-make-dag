@@ -44,7 +44,6 @@ environment overhead for you.
 
 ```sh
 poetry install
-pre-commit install
 ```
 
 ## Manual installation
@@ -63,7 +62,7 @@ pip install -e .
 
 All of the commands below are prefixed with `poetry run` - if you did not
 install via poetry, or have already run the `poetry shell` command to activate
-your poetry environment, do not include the `poetry run`:
+your poetry environment, do not include the `poetry run` part:
 
 ```sh
 # Installed via poetry and NOT in poetry shell:
@@ -72,12 +71,13 @@ poetry run make tables
 # In poetry shell or manual virtual environment installation
 make tables
 ```
+
 `make tables` will produce new tables in `data/analysis.db` for each SQL file in
 the `sql/` directory.  A couple examples are provided for hard artifacts:
 
-1. `make customer_sales.png` will produce a bar chart in the `target/` directory 
+1. `poetry run make customer_sales.png` will produce a bar chart in the `target/` directory
    with total sales of US customers within each state.
-3. `make customer_sales.csv` produces a CSV with the data this chart uses.
+3. `poetry run make customer_sales.csv` produces a CSV with the data this chart uses.
 
 If at any point you want to refresh your `target/` or `data/` directories, you
-can use `make clean` and `make data`.
+can use `poetry run make clean`.
