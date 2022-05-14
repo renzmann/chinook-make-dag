@@ -24,8 +24,8 @@ tables: $(TARGETS)
 # The main table and file dependency graph goes here, of the form:
 #   target(s): one or more dependencies
 #
-# Athena table, requires sql/<name>.sql to exist
-#   ^<name>
+# Database table, requires sql/<name>.sql to exist
+#   <name>.ctas
 #
 # Flat files, requires the python function `<name>_csv` or `<name>_excel` in <project>/commands.py
 #   <name>.csv/.xlsx
@@ -39,7 +39,7 @@ customer_sales.png customer_sales.csv: customer_sales.ctas
 
 # ========================= Automatic Rules =================================
 # Empty targets ending with ".ctas" indicate a completed CTAS execution
-%.ctas: %.sql | $(TARGETDIR) database
+%.ctas: %.sql | $(TARGETDIR) $(DATADIR)
 	python -m $(PROJECT) ctas $<
 	@touch $(AUTODIR)/$@
 
@@ -69,14 +69,13 @@ $(DATADIR):
 
 data: $(DATADIR)
 
-$(TARGETS): config.yml $(PROJECT)
+$(TARGETS): config.yml $(PROJECT) | $(TARGETDIR) $(DATADIR)
 
 clean:
 	@[ ! -d $(TARGETDIR) ] || rm -r $(TARGETDIR)
 	@[ ! -d $(DATADIR) ] || rm -r $(DATADIR)
 
 poetry:
-	@pip install --upgrade pip wheel
 	@curl -sSL https://install.python-poetry.org | python3 -
 
 install: data poetry
